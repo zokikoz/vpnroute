@@ -16,7 +16,7 @@ if __name__ == '__main__':
         for line in lines:
             if 'VPN' in line: vpnif = True
             if 'IPv4' in line and vpnif is True:
-                vpnip = re.search(r'IPv4-адрес.*:\s(\d+\.\d+\.\d+\.\d+)', line)[1]
+                vpnip = re.search(r'IPv4.*:\s(\d+\.\d+\.\d+\.\d+)', line)[1]
                 break
 
     result = subprocess.run(['netstat', '-r'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
